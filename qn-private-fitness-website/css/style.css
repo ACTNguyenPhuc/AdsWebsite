@@ -1993,6 +1993,17 @@ body.light-mode .step-number {
 
 @media (max-width: 1024px) {
   :root { --section-pad: 80px; }
+  #header {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-gold);
+  }
+
+  body.light-mode #header {
+    background: rgba(248, 246, 242, 0.98);
+  }
+
   nav.main-nav { display: none; }
   .menu-toggle { display: flex; }
   .header-inner { padding: 0 20px; }
@@ -2012,14 +2023,17 @@ body.light-mode .step-number {
     flex-direction: column;
     position: fixed;
     top: 80px;
-    left: 0;
     right: 0;
-    bottom: 0;
+    width: 50vw;
+    height: 50vh;
     background: rgba(10, 10, 10, 0.98);
     backdrop-filter: blur(20px);
     align-items: center;
-    justify-content: center;
-    gap: 8px;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 24px 0 40px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     z-index: 999;
   }
 
@@ -2028,8 +2042,9 @@ body.light-mode .step-number {
   }
 
   nav.main-nav.open .nav-link {
-    font-size: 24px;
-    letter-spacing: 0.15em;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
   }
 }
 
