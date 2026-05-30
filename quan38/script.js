@@ -11,6 +11,42 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 
 /* ══════════════════════════════════════
+   0. THEME TOGGLE (Light/Dark)
+══════════════════════════════════════ */
+(function initThemeToggle() {
+  const root = document.documentElement;
+  const toggles = [$('#themeToggle'), $('#themeToggleMobile')].filter(Boolean);
+  if (!toggles.length) return;
+
+  const storageKey = 'quan38-theme';
+  const defaultTheme = 'light';
+  const stored = localStorage.getItem(storageKey);
+  const initial = stored === 'dark' || stored === 'light' ? stored : defaultTheme;
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    toggles.forEach(btn => {
+      btn.setAttribute('aria-pressed', theme === 'dark');
+      btn.setAttribute('data-theme', theme);
+      const text = btn.querySelector('.theme-text');
+      if (text) text.textContent = theme === 'dark' ? 'Tối' : 'Sáng';
+    });
+  }
+
+  applyTheme(initial);
+
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') || defaultTheme;
+      const next = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem(storageKey, next);
+      applyTheme(next);
+    });
+  });
+})();
+
+
+/* ══════════════════════════════════════
    1. NAVBAR – scroll state & active link
 ══════════════════════════════════════ */
 (function initNavbar() {

@@ -1,6 +1,6 @@
 /* =====================================================
    QUÁN 38 – Ram, Bánh Mướt, Giò Lắt
-   style.css – Dark Premium Vietnamese Restaurant Theme
+  style.css – Light/Dark Premium Vietnamese Restaurant Theme
    ===================================================== */
 
 /* ── Custom Properties ── */
@@ -10,16 +10,47 @@
   --red-deep:  #8B1A1A;
   --gold:      #F4C542;
   --gold-muted:#C9A42D;
-  --black:     #111111;
-  --black-mid: #1A1A1A;
-  --black-soft:#222222;
-  --black-card:#1C1C1C;
+  --black:     #F7F1E8;
+  --black-mid: #EFE5D6;
+  --black-soft:#E7DBC8;
+  --black-card:#FFFFFF;
   --white:     #FFFFFF;
-  --off-white: #F5F0E8;
-  --text:      #D8D0C4;
-  --text-muted:#7A7060;
-  --border:    rgba(244, 197, 66, 0.15);
-  --border-light: rgba(255,255,255,0.07);
+  --off-white: #FDF8F1;
+  --text-strong: #1F1A14;
+  --text:      #3B3328;
+  --text-muted:#766C5F;
+  --border:    rgba(192, 143, 16, 0.2);
+  --border-light: rgba(0,0,0,0.08);
+
+  --nav-bg: rgba(255,255,255,0.9);
+  --mobile-nav-bg: rgba(255,255,255,0.96);
+  --hero-overlay-1: rgba(0,0,0,0.25);
+  --hero-overlay-2: rgba(0,0,0,0.15);
+  --hero-overlay-3: rgba(0,0,0,0.55);
+  --hero-overlay-4: rgba(0,0,0,0.85);
+  --menu-overlay: rgba(0,0,0,0.55);
+  --lightbox-bg: rgba(0,0,0,0.95);
+  --lightbox-text: #FFFFFF;
+  --lightbox-caption: rgba(255,255,255,0.75);
+  --stat-label: rgba(27,22,16,0.7);
+  --stat-divider: rgba(192,143,16,0.25);
+
+  --input-bg: rgba(0,0,0,0.03);
+  --input-bg-focus: rgba(0,0,0,0.06);
+  --input-text: var(--text-strong);
+  --input-placeholder: var(--text-muted);
+  --input-scheme: light;
+
+  --outline-border: rgba(0,0,0,0.2);
+  --cta-text: #FFFFFF;
+
+  --hero-text: #FFFFFF;
+  --hero-text-soft: #FDF6EA;
+  --hero-text-muted: rgba(255,255,255,0.75);
+  --hero-brightness: 0.55;
+  --hero-saturate: 1.1;
+
+  --scrollbar-track: var(--black);
 
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body:    'Cormorant Garamond', Georgia, serif;
@@ -28,11 +59,56 @@
   --nav-h:    72px;
   --radius:   4px;
   --radius-lg:12px;
-  --shadow:   0 4px 40px rgba(0,0,0,0.5);
-  --shadow-gold: 0 0 30px rgba(244,197,66,0.15);
+  --shadow:   0 4px 40px rgba(32,24,16,0.18);
+  --shadow-gold: 0 0 30px rgba(244,197,66,0.18);
 
   --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: 0.2s ease;
+}
+
+:root[data-theme="dark"] {
+  --black:     #111111;
+  --black-mid: #1A1A1A;
+  --black-soft:#222222;
+  --black-card:#1C1C1C;
+  --text-strong: #FFFFFF;
+  --text:      #D8D0C4;
+  --text-muted:#7A7060;
+  --border:    rgba(244, 197, 66, 0.15);
+  --border-light: rgba(255,255,255,0.07);
+
+  --nav-bg: rgba(17,17,17,0.96);
+  --mobile-nav-bg: rgba(17,17,17,0.98);
+  --hero-overlay-1: rgba(17,17,17,0.2);
+  --hero-overlay-2: rgba(17,17,17,0.1);
+  --hero-overlay-3: rgba(17,17,17,0.6);
+  --hero-overlay-4: rgba(17,17,17,0.95);
+  --menu-overlay: rgba(17,17,17,0.8);
+  --lightbox-bg: rgba(0,0,0,0.95);
+  --lightbox-text: #FFFFFF;
+  --lightbox-caption: rgba(255,255,255,0.75);
+  --stat-label: rgba(255,255,255,0.6);
+  --stat-divider: rgba(244,197,66,0.15);
+
+  --input-bg: rgba(255,255,255,0.04);
+  --input-bg-focus: rgba(255,255,255,0.07);
+  --input-text: #FFFFFF;
+  --input-placeholder: #7A7060;
+  --input-scheme: dark;
+
+  --outline-border: rgba(255,255,255,0.3);
+  --cta-text: #FFFFFF;
+
+  --hero-text: #FFFFFF;
+  --hero-text-soft: #F5F0E8;
+  --hero-text-muted: #7A7060;
+  --hero-brightness: 0.45;
+  --hero-saturate: 1.1;
+
+  --scrollbar-track: var(--black);
+
+  --shadow:   0 4px 40px rgba(0,0,0,0.5);
+  --shadow-gold: 0 0 30px rgba(244,197,66,0.15);
 }
 
 /* ── Reset & Base ── */
@@ -97,7 +173,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-strong);
   line-height: 1.15;
   margin-bottom: 1.25rem;
 }
@@ -134,7 +210,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: background var(--transition), box-shadow var(--transition);
 }
 .navbar.scrolled {
-  background: rgba(17,17,17,0.96);
+  background: var(--nav-bg);
   backdrop-filter: blur(20px);
   box-shadow: 0 1px 0 var(--border);
 }
@@ -170,7 +246,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--text-strong);
   line-height: 1.4;
 }
 .logo-text small {
@@ -185,6 +261,40 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   gap: 0.25rem;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-strong);
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: var(--black-card);
+  transition: var(--transition-fast);
+}
+.theme-toggle:hover {
+  border-color: rgba(244,197,66,0.45);
+  box-shadow: 0 6px 20px rgba(244,197,66,0.18);
+}
+.theme-toggle .theme-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+.theme-toggle .theme-icon-moon { display: none; }
+.theme-toggle[data-theme="dark"] .theme-icon-sun { display: none; }
+.theme-toggle[data-theme="dark"] .theme-icon-moon { display: inline; }
+.theme-toggle--mobile {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.75rem;
 }
 .nav-link {
   font-family: var(--font-ui);
@@ -207,14 +317,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: transform var(--transition-fast);
 }
 .nav-link:hover, .nav-link.active {
-  color: var(--white);
+  color: var(--text-strong);
 }
 .nav-link:hover::after, .nav-link.active::after {
   transform: translateX(-50%) scaleX(1);
 }
 .nav-link.nav-cta {
   background: var(--red);
-  color: var(--white);
+  color: var(--cta-text);
   padding: 0.5rem 1.2rem;
   border-radius: 2px;
   letter-spacing: 0.08em;
@@ -233,7 +343,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hamburger span {
   display: block;
   height: 1.5px;
-  background: var(--white);
+  background: var(--text-strong);
   border-radius: 2px;
   transition: var(--transition);
   transform-origin: center;
@@ -247,7 +357,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: fixed;
   inset: 0;
   z-index: 999;
-  background: rgba(17,17,17,0.98);
+  background: var(--mobile-nav-bg);
   backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
@@ -271,7 +381,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 6vw, 2.5rem);
   font-weight: 600;
-  color: var(--off-white);
+  color: var(--text-strong);
   padding: 0.5rem 2rem;
   transition: color var(--transition-fast), letter-spacing var(--transition-fast);
 }
@@ -300,17 +410,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   object-fit: cover;
   object-position: center 30%;
   transform: scale(1.1);
-  filter: brightness(0.45) saturate(1.1);
+  filter: brightness(var(--hero-brightness)) saturate(var(--hero-saturate));
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(17,17,17,0.2) 0%,
-    rgba(17,17,17,0.1) 40%,
-    rgba(17,17,17,0.6) 75%,
-    rgba(17,17,17,0.95) 100%
+    var(--hero-overlay-1) 0%,
+    var(--hero-overlay-2) 40%,
+    var(--hero-overlay-3) 75%,
+    var(--hero-overlay-4) 100%
   );
 }
 .hero-grain {
@@ -343,7 +453,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-title {
   font-family: var(--font-display);
   font-weight: 900;
-  color: var(--white);
+  color: var(--hero-text);
   line-height: 0.9;
   margin-bottom: 1.5rem;
   display: flex;
@@ -356,7 +466,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: clamp(3rem, 8vw, 6rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--off-white);
+  color: var(--hero-text-soft);
 }
 .title-num {
   font-size: clamp(5rem, 18vw, 14rem);
@@ -370,7 +480,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--font-body);
   font-size: clamp(0.95rem, 2.5vw, 1.25rem);
   font-style: italic;
-  color: var(--off-white);
+  color: var(--hero-text-soft);
   letter-spacing: 0.05em;
   margin-bottom: 1.25rem;
   opacity: 0;
@@ -380,7 +490,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-desc {
   font-family: var(--font-body);
   font-size: clamp(1rem, 1.5vw, 1.1rem);
-  color: var(--text-muted);
+  color: var(--hero-text-muted);
   margin-bottom: 2.5rem;
   opacity: 0;
   animation: fadeSlideUp 0.9s 0.8s ease forwards;
@@ -414,7 +524,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--hero-text-muted);
 }
 .scroll-line {
   width: 1px;
@@ -456,7 +566,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .btn-primary {
   background: var(--red);
-  color: var(--white);
+  color: var(--cta-text);
   box-shadow: 0 4px 20px rgba(178,34,34,0.4);
 }
 .btn-primary:hover {
@@ -467,9 +577,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .btn-outline {
   background: transparent;
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--text-strong);
+  border: 1px solid var(--outline-border);
 }
+.hero .btn-outline {
+  color: var(--hero-text);
+  border-color: rgba(255,255,255,0.6);
+}
+
 .btn-outline:hover {
   border-color: var(--gold);
   color: var(--gold);
@@ -495,7 +610,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .btn-small:hover {
   background: var(--gold);
-  color: var(--black);
+  color: var(--text-strong);
 }
 
 /* ═══════════════════════════════════════
@@ -604,7 +719,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--font-ui);
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--off-white);
+  color: var(--text);
 }
 .feature-icon {
   color: var(--gold);
@@ -654,7 +769,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .menu-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(17,17,17,0.8) 0%, transparent 60%);
+  background: linear-gradient(to top, var(--menu-overlay) 0%, transparent 60%);
 }
 .menu-card-tag {
   position: absolute;
@@ -681,7 +796,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-strong);
 }
 .menu-card-desc {
   font-family: var(--font-body);
@@ -759,7 +874,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--cta-text);
 }
 
 /* Lightbox */
@@ -767,7 +882,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(0,0,0,0.95);
+  background: var(--lightbox-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -801,13 +916,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--font-body);
   font-style: italic;
   font-size: 1rem;
-  color: var(--text-muted);
+  color: var(--lightbox-caption);
 }
 .lightbox-close,
 .lightbox-prev,
 .lightbox-next {
   position: absolute;
-  color: var(--white);
+  color: var(--lightbox-text);
   font-size: 1.5rem;
   width: 48px;
   height: 48px;
@@ -886,14 +1001,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--font-ui);
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--cta-text);
   flex-shrink: 0;
 }
 .review-name {
   font-family: var(--font-ui);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--white);
+  color: var(--text-strong);
 }
 .review-date {
   font-family: var(--font-ui);
@@ -934,7 +1049,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 50%;
   background: var(--black-card);
   border: 1px solid var(--border-light);
-  color: var(--white);
+  color: var(--text-strong);
   font-size: 1.5rem;
   display: flex;
   align-items: center;
@@ -989,7 +1104,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   right: 0; top: 20%; bottom: 20%;
   width: 1px;
-  background: rgba(244,197,66,0.15);
+  background: var(--stat-divider);
 }
 .stat-item:last-child::after { display: none; }
 
@@ -1007,7 +1122,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
+  color: var(--stat-label);
 }
 
 /* ═══════════════════════════════════════
@@ -1093,11 +1208,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  background: rgba(255,255,255,0.04);
+  background: var(--input-bg);
   border: 1px solid var(--border-light);
   border-radius: var(--radius);
   padding: 0.85rem 1rem;
-  color: var(--white);
+  color: var(--input-text);
   font-family: var(--font-body);
   font-size: 1rem;
   outline: none;
@@ -1105,12 +1220,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 100%;
 }
 .form-group input::placeholder,
-.form-group textarea::placeholder { color: var(--text-muted); font-style: italic; }
+.form-group textarea::placeholder { color: var(--input-placeholder); font-style: italic; }
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: rgba(244,197,66,0.5);
-  background: rgba(255,255,255,0.07);
+  background: var(--input-bg-focus);
 }
 .form-group input.error,
 .form-group select.error,
@@ -1155,7 +1270,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .booking-success h3 {
   font-family: var(--font-display);
   font-size: 1.6rem;
-  color: var(--white);
+  color: var(--text-strong);
   margin-bottom: 0.75rem;
 }
 .booking-success p {
@@ -1189,7 +1304,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-strong);
   margin-bottom: 0.25rem;
 }
 .contact-sub {
@@ -1291,7 +1406,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .map-address {
   font-family: var(--font-display);
   font-size: 1.1rem;
-  color: var(--white);
+  color: var(--text-strong);
   font-weight: 600;
 }
 .map-note {
@@ -1346,7 +1461,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--text-muted);
   transition: color var(--transition-fast);
 }
-.footer-nav a:hover, .footer-contact a:hover { color: var(--white); }
+.footer-nav a:hover, .footer-contact a:hover { color: var(--text-strong); }
 .footer-contact p { margin-bottom: 0.4rem; }
 
 .footer-social .social-links { flex-direction: column; }
@@ -1376,7 +1491,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 44px;
   border-radius: 50%;
   background: var(--red);
-  color: var(--white);
+  color: var(--cta-text);
   font-size: 1.1rem;
   display: flex;
   align-items: center;
@@ -1475,8 +1590,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   }
   .stat-item::after { display: none; }
   .stat-item {
-    border-bottom: 1px solid rgba(244,197,66,0.1);
-    border-right: 1px solid rgba(244,197,66,0.1);
+    border-bottom: 1px solid var(--stat-divider);
+    border-right: 1px solid var(--stat-divider);
   }
   .stat-item:nth-child(even) { border-right: none; }
 
@@ -1503,17 +1618,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ── Input color scheme fixes ── */
 input[type="date"],
 input[type="time"] {
-  color-scheme: dark;
+  color-scheme: var(--input-scheme);
 }
 
 /* ── Selection ── */
 ::selection {
   background: rgba(244,197,66,0.25);
-  color: var(--white);
+  color: var(--text-strong);
 }
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
 ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--red-light); }
