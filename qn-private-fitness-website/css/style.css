@@ -382,6 +382,7 @@ nav.main-nav {
    HERO SECTION
    ===================================================== */
 #hero {
+  padding-top: 100px;
   position: relative;
   height: 100vh;
   min-height: 700px;
