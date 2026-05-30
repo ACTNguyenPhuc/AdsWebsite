@@ -132,7 +132,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const el = entry.target;
-      const delay = parseFloat(el.dataset.delay || 0) * 120;
+      const delay = parseFloat(el.dataset.delay || 0) * 10;
       setTimeout(() => el.classList.add('visible'), delay);
       observer.unobserve(el);
     });
