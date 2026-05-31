@@ -64,9 +64,7 @@ function renderHeader() {
       </nav>
 
       <div class="header-actions">
-        <button class="theme-toggle" onclick="ThemeManager.toggle()" title="Toggle Theme">
-          <i class="fas fa-sun"></i>
-        </button>
+        
         <a href="#contact" class="btn btn-gold">
           <i class="fas fa-calendar-check"></i> Đăng ký tư vấn
         </a>
@@ -823,8 +821,10 @@ function renderFooter() {
         <div>
           <h4 class="footer-col-title">Liên hệ</h4>
           <div class="footer-contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>${siteData.contact.address}</span>
+            <i class="fas fa-map-marker-alt "></i>
+           ${siteData.contact.address
+                .map(addr => `<span>${addr}</span>`)
+                .join("")}
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-phone"></i>

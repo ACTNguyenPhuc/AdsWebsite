@@ -12,7 +12,7 @@ const siteData = {
   contact: {
     address: [
       "Cơ sở 1: 154 Triệu Nữ Vương, Hải Châu, Đà Nẵng",
-      "Cơ sở 2: 78 Nguyễn Văn Linh, Thanh Khê, Đà Nẵng"
+      "Cơ sở 2: 16 Nguyễn Đức Trung,Thanh Khê, Đà Nẵng"
     ],
     phone: "033 598 3908",
     email: "info@qnprivatefitness.vn",

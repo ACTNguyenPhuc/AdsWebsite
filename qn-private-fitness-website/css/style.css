@@ -115,7 +115,6 @@ ul {
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 32px;
 }
 
 /* =====================================================
@@ -1872,6 +1871,7 @@ body.light-mode .step-number {
 
 .footer-contact-item {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   gap: 12px;
   font-size: 13px;
@@ -2007,6 +2007,7 @@ body.light-mode .step-number {
   nav.main-nav { display: none; }
   .menu-toggle { display: flex; }
   .header-inner { padding: 0 20px; }
+  .header-actions .btn { display: none; }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .process-grid::before { display: none; }
   .services-grid { grid-template-columns: 1fr; }
